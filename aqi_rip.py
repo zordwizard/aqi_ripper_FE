@@ -25,7 +25,7 @@ def write_to_file(stuff_to_write, where_to_write):
 
 
 def write_mid_file(value, index):
-    file_path = "pandas2.py"
+    file_path = "aqi_rip.py"
     index= index -1
     value =str(value) + "\n"
     print(value)

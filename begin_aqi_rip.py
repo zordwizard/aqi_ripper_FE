@@ -17,7 +17,7 @@ def write_to_file(stuff_to_write, where_to_write):
 
 
 def write_mid_file(value, index):
-    file_path = "pandas2.py"
+    file_path = "aqi_rip.py"
     index= index -1
     value =str(value) + "\n"
     print(value)
@@ -54,6 +54,7 @@ while adding_town ==  True:
         write_mid_file(new_town_name+"_dist = hs.haversine(fort_erie_loc,"+new_town_name+"_loc)", 106)
         write_mid_file(new_town_name+"_data = ["+"'"+new_town_name+"'"+", heute, "+new_town_name+"_aqi, "+new_town_name+"_dist, zeit]", 107)
         write_mid_file("write_to_file("+new_town_name+"_data, 'aqi_checks.csv')", 108)
+		write_mid_file("\n", 109)
     elif add_town_q == "N":
         print("No towns added")
         adding_town = False
