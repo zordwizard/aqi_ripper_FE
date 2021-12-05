@@ -35,7 +35,13 @@ while adding_town ==  True:
     add_town_q = str(add_town_q.upper())
     if add_town_q == "Y":
         print("Sounds good, let's answer a few questions")
-        new_town_name = input("Enter name of town: ")
+        new_town_name_str= input("Enter name of town: ")
+        new_town_name = new_town_name_str
+        if " " in new_town_name:
+            new_town_name = new_town_name.replace(" ", "_")
+        if "," in new_town_name:
+            new_town_name = new_town_name.replace(",", "")
+        print(new_town_name)
         new_coorinate1 = (input("Enter absolute latitude: "))
         new_coorinate2 = (input("Enter absolute longitude: "))
         new_location = "(" + str(new_coorinate1) + "," + str(new_coorinate2) + ")"
@@ -54,6 +60,7 @@ while adding_town ==  True:
         write_mid_file(new_town_name+"_dist = hs.haversine(fort_erie_loc,"+new_town_name+"_loc)", 106)
         write_mid_file(new_town_name+"_data = ["+"'"+new_town_name+"'"+", heute, "+new_town_name+"_aqi, "+new_town_name+"_dist, zeit]", 107)
         write_mid_file("write_to_file("+new_town_name+"_data, 'aqi_checks.csv')", 108)
+        write_mid_file("\n", 109)
     elif add_town_q == "N":
         print("No towns added")
         adding_town = False

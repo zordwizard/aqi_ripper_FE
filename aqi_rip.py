@@ -98,6 +98,16 @@ london_on_page = requests.get(london_on_url, headers= headers)
 london_on_soup = BeautifulSoup(london_on_page.content, 'html.parser')
 london_on_aqi = london_on_soup.find(class_="aq-number").get_text()
 london_on_aqi = int(london_on_aqi)
+gainesville_fl_url='https://www.accuweather.com/en/us/gainesville/32601/air-quality-index/328162'
+gainesville_fl_loc=(29.651634,-82.324829)
+gainesville_fl_page = requests.get(gainesville_fl_url, headers = headers)
+gainesville_fl_soup=BeautifulSoup(gainesville_fl_page.content, 'html.parser')
+gainesville_fl_aqi = int(gainesville_fl_soup.find(class_='aq-number').get_text())
+gainesville_fl_dist = hs.haversine(fort_erie_loc,gainesville_fl_loc)
+gainesville_fl_data = ['gainesville_fl', heute, gainesville_fl_aqi, gainesville_fl_dist, zeit]
+write_to_file(gainesville_fl_data, 'aqi_checks.csv')
+
+
 
 amsterdam_url='https://www.accuweather.com/en/nl/amsterdam/249758/air-quality-index/249758'
 amsterdam_loc=(52.370216,4.895168)
