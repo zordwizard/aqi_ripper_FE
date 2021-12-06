@@ -1,4 +1,4 @@
-This is an AQI checker originally indented for Fort Erie.
+This is an AQI checker originally intended for Fort Erie.
 The goal was to calulate AQI in a town, record date and time and list distance from fort erie.
 Current functionality:
 - Creates csv files with the results
